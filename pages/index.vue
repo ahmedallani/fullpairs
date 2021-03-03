@@ -38,6 +38,9 @@ export default {
         arr.push([this.pairs[i], this.pairs[i + 1]]);
         i += 2;
       }
+      if (this.pairs.length % 2 === 1) {
+        arr.push([this.pairs[this.pairs.length - 1]]);
+      }
       return arr;
     }
   }
