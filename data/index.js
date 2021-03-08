@@ -1,19 +1,33 @@
-export default [
-  ["Marwen Trabelsi", "Mohamed Seif Bardi"],
-  ["Amir Hachani", "Nedia Khelifi"],
-  ["Youssef Talhewi", "Hiba Bouslimi"],
-  ["Mohamed Aziz Jelazi", "Baha Nouali"],
-  ["Mohamed Rezgui", "Ahmed Gharbi"],
-  ["Oussema Yahyaoui", "Karim Zargouni"],
-  ["Youssef Mhamdi", "Aziz Tounsi"],
-  ["Mohamed Islam Boudhina", "Wael Hajji"],
-  ["Mohamed Chebi", "Rafik Boubaker"],
-  ["Mehdi Hassoun", "Sabrine Noemane"],
-  ["Abdelhamid Miled", "Sabrine Douihech"],
-  ["Mohamed Ashref Gallah", "Mayssa Ben Yaala"],
-  ["Hedi Riba", "Oussema Chemingui"],
-  ["Aziz Khardani", "Amal Ben Sassi"],
-  ["Arij Laatigue", "Hamza Fendri"],
-  ["Lokmen Abid", "Mohamed Karam Saadaoui"],
-  ["Abdenacer Zin Elabidin", "Malek Hbib Hizaoui"]
-];
+import data from "./data"
+
+function pairs(data){
+  let obj={}
+  let rtn= []
+  for (let i=0;i<data.length;i++){
+    let elm = data[i]
+    obj[elm[1]] = true
+    if(obj[elm[0]]===undefined){
+      rtn.push(elm)
+    }
+  }
+  return rtn
+}
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+export default shuffle(pairs(data))

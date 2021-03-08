@@ -1,25 +1,34 @@
 <template>
-  <div class="bg-gray-100 min-h-screen grid grid-cols-3 gap-2 p-2 text-center">
-    <div
-      v-for="(table, index) in tables"
-      :key="index"
-      class="bg-white rounded-md flex flex flex-col items-center justify-around p-2"
-    >
+  <div>
+    <div class="bg-gray-100  flex text-center p-1">
       <div
-        v-for="(pair, i) in table"
-        :key="i"
-        class="w-11/12 flex rounded-md flex-wrap justify-around p-2 m-2  bg-gray-100"
+        v-for="(range, indexR) in ranges"
+        :key="indexR"
+        class="flex flex-col min-h-screen w-1/3 my-1 mx-3 items-center justify-around"
       >
-        <div>{{ pair[0] }}</div>
-        <img :src="icons.handshake" />
-        <div>{{ pair[1] }}</div>
+        <div
+          v-for="(table, index) in range"
+          :key="index"
+          class="bg-white  border-2 border-gray-300 rounded-md flex flex flex-col items-center justify-around p-1 my-2 h-1/3 w-full h-full"
+        >
+          <div class="w-full text-left">{{ indexR * 3 + index + 1 }}</div>
+          <div
+            v-for="(pair, i) in table"
+            :key="i"
+            class="w-11/12 flex rounded-md flex-wrap justify-around p-1 m-1  bg-gray-100 border-2 border-gray-400"
+          >
+            <div>{{ pair[0] }}</div>
+            <img :src="icons.handshake" />
+            <div>{{ pair[1] }}</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import pairs from "@/data";
+import pairs from "~/data/index.js";
 export default {
   data() {
     return {
@@ -34,9 +43,21 @@ export default {
     tables: function() {
       let arr = [];
       let i = 0;
-      while (i < this.pairs.length - 2) {
+      let ln = this.pairs.length;
+      while (i < ln - 2) {
         arr.push([this.pairs[i], this.pairs[i + 1]]);
         i += 2;
+      }
+      if (ln % 2 === 1) {
+        arr.push([this.pairs[ln - 1]]);
+      }
+      console.log(this.pairs, ln);
+      return arr;
+    },
+    ranges: function() {
+      let arr = [];
+      for (let i = 0; i < this.tables.length; i += 3) {
+        arr.push([this.tables[i], this.tables[i + 1], this.tables[i + 2]]);
       }
       return arr;
     }
