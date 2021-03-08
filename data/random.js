@@ -1,23 +1,24 @@
-import data from "./data"
+let data = require("./data");
 
-function pairs(data){
-  let obj={}
-  let rtn= []
-  for (let i=0;i<data.length;i++){
-    let elm = data[i]
-    obj[elm[1]] = true
-    if(obj[elm[0]]===undefined){
-      rtn.push(elm)
+function pairs(data) {
+  let obj = {};
+  let rtn = [];
+  for (let i = 0; i < data.length; i++) {
+    let elm = data[i];
+    obj[elm[1]] = true;
+    if (obj[elm[0]] === undefined) {
+      rtn.push(elm);
     }
   }
-  return rtn
+  return rtn;
 }
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
 
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
-
     // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
@@ -30,4 +31,4 @@ function shuffle(array) {
 
   return array;
 }
-export default shuffle(pairs(data))
+console.log(shuffle(pairs(data)));
