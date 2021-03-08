@@ -51,7 +51,6 @@ export default {
       if (ln % 2 === 1) {
         arr.push([this.pairs[ln - 1]]);
       }
-      console.log(this.pairs, ln);
       return arr;
     },
     ranges: function() {
