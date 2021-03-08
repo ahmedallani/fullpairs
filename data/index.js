@@ -1,33 +1,19 @@
-import data from "./data"
-
-function pairs(data){
-  let obj={}
-  let rtn= []
-  for (let i=0;i<data.length;i++){
-    let elm = data[i]
-    obj[elm[1]] = true
-    if(obj[elm[0]]===undefined){
-      rtn.push(elm)
-    }
-  }
-  return rtn
-}
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-
-  return array;
-}
-export default shuffle(pairs(data))
+export default [
+  ["Aziz Khardani", "Mohamed Karam Saadaoui"],
+  ["Baha Nouali", "Youssef Talhewi"],
+  ["Abdelhamid Miled", "Mohamed Rezgui"],
+  ["Arij Laatigue", "Youssef Mhamdi"],
+  ["Hedi Riba", "Mohamed Islam Boudhina"],
+  ["Mehdi Hassoun", "Mohamed Ashref Gallah"],
+  ["Malek Hbib Hizaoui", "Mohamed Aziz Jelazi"],
+  ["Marwen Trabelsi", "Rafik Boubaker"],
+  ["Amal Ben Sassi", "Sabrine Douihech"],
+  ["Nedia Khelifi", "Sabrine Noemane"],
+  ["Amir Hachani", "Wael Hajji"],
+  ["Hiba Bouslimi", "Oussema Yahyaoui"],
+  ["Karim Zargouni", "Oussema Chemingui"],
+  ["Mayssa Ben Yaala", "Mohamed Chebi"],
+  ["Lokmen Abid", "Mohamed Seif Bardi"],
+  ["Abdenacer Zin Elabidin", "Hamza Fendri"],
+  ["Ahmed Gharbi", "Aziz Tounsi"]
+];
